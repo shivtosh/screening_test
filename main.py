@@ -137,6 +137,7 @@ def model_build(algo,X_train,y_train,p_ob):
         print(p_ob[algo].keys())
         #strat=p_ob[algo]["feature_sampling_statergy"]
         #print(strat)
+        splitt=[]
         if p_ob[algo]['use_best']==True:
             splitt=['best']
         if p_ob[algo]['use_random']:
@@ -169,6 +170,7 @@ def model_build(algo,X_train,y_train,p_ob):
         print(p_ob[algo].keys())
         strat = p_ob[algo]["feature_sampling_statergy"]
         #print(strat)
+        max_fea=[]
         min_sub = (p_ob[algo]['min_subsample'])
         max_sub = int(p_ob[algo]['max_subsample'])
         mini_step = int(p_ob[algo]['min_stepsize'])

@@ -1,0 +1,62 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2706
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica-Bold;\f1\fswiss\fcharset0 Helvetica;\f2\fmodern\fcharset0 Courier;
+}
+{\colortbl;\red255\green255\blue255;\red152\green118\blue170;\red204\green120\blue50;\red169\green183\blue198;
+\red106\green135\blue89;\red104\green151\blue187;}
+{\*\expandedcolortbl;;\csgenericrgb\c59608\c46275\c66667;\csgenericrgb\c80000\c47059\c19608;\csgenericrgb\c66275\c71765\c77647;
+\csgenericrgb\c41569\c52941\c34902;\csgenericrgb\c40784\c59216\c73333;}
+\vieww28600\viewh18000\viewkind0
+\deftab720
+\pard\pardeftab720\sl252\slmult1\sa160\partightenfactor0
+
+\f0\b\fs22 \cf0 \ul \ulc0 spotifyScreening Test:\
+\pard\pardeftab720\sl252\slmult1\sb100\sa100\qj\partightenfactor0
+
+\f1\b0 \cf0 \ulnone As part of the screening test, you will write code to parse the JSON file provided(algoparams_from_ui) and kick of in sequence the following machine learning steps programmatically.\ul  Keep in mind your final code should be able to parse any json that follows this format. It is crucial you have a generic parse that can read the various steps like feature handling, feature generation and model building using Grid search after parsing hyper params. \ulnone \
+\pard\pardeftab720\li720\fi-360\sl252\slmult1\sb100\sa100\qj\partightenfactor0
+\cf0 Read the target and type of regression to be run\
+\pard\pardeftab720\li720\sl252\slmult1\sb100\sa100\qj\partightenfactor0
+\cf0      "target": \{\
+        "prediction_type": "Regression",\
+        "target": "petal_width",\
+        "type":"regression",\
+        "partitioning": true\
+      \},\
+\pard\pardeftab720\li720\fi-360\sl252\slmult1\sb100\sa100\qj\partightenfactor0
+\cf0 2)	Read the features(which are column names in the csv) and figure out what missing imputation needs to be applied and apply that to the columns loaded in a dataframe \
+\pard\pardeftab720\sl252\slmult1\sb100\sa100\qj\partightenfactor0
+\cf0 \
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab720\li720\partightenfactor0
+
+\f2\fs23 \cf2 "feature_handling"\cf3 : \cf4 \{\uc0\u8232   \cf2 "sepal_length"\cf3 : \cf4 \{\uc0\u8232     \cf2 "feature_name"\cf3 : \cf5 "sepal_length"\cf3 ,\uc0\u8232     \cf2 "is_selected"\cf3 : true,\uc0\u8232     \cf2 "feature_variable_type"\cf3 : \cf5 "numerical"\cf3 ,\uc0\u8232     \cf2 "feature_details"\cf3 : \cf4 \{\uc0\u8232       \cf2 "numerical_handling"\cf3 : \cf5 "Keep as regular numerical feature"\cf3 ,\uc0\u8232       \cf2 "rescaling"\cf3 : \cf5 "No rescaling"\cf3 ,\uc0\u8232       \cf2 "make_derived_feats"\cf3 : false,\uc0\u8232       \cf2 "missing_values"\cf3 : \cf5 "Impute"\cf3 ,\uc0\u8232       \cf2 "impute_with"\cf3 : \cf5 "Average of values"\cf3 ,\uc0\u8232       \cf2 "impute_value"\cf3 : \cf6 0\uc0\u8232     \cf4 \}\uc0\u8232   \}\cf3 ,\cf4 \
+\pard\pardeftab720\li720\sl252\slmult1\sb100\sa100\qj\partightenfactor0
+
+\f1\fs22 \cf0 \
+\pard\pardeftab720\li720\fi-360\sl252\slmult1\sb100\sa100\qj\partightenfactor0
+\cf0 3)	Compute feature reduction based on input. See the screenshot below where there can be No Reduction, Corr with Target, Tree-based, PCA. Please make sure you write code so that all options can work. If we rerun your code with a different json it should work if we switch No Reduction to say PCA. \
+\pard\pardeftab720\li720\sl252\slmult1\sb100\sa100\qj\partightenfactor0
+\cf0 \
+\pard\pardeftab720\li720\fi-360\sl252\slmult1\sb100\sa100\qj\partightenfactor0
+\cf0 4)	Parse the json and make the model objects(using sklean) that can handle what is required in the \'93prediction_type\'94 specified in the JSON(See #1 where \'93prediction_type\'94 is specified). Keep in mind not to pick models that don\'92t apply for the prediction_type specified \
+\pard\pardeftab720\sl252\slmult1\sb100\sa100\qj\partightenfactor0
+\cf0 \
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab720\li720\partightenfactor0
+
+\f2\fs23 \cf2 "LogisticRegression"\cf3 : \cf4 \{\uc0\u8232   \cf2 "model_name"\cf3 : \cf5 "LogisticRegression"\cf3 ,\uc0\u8232   \cf2 "is_selected"\cf3 : false,\uc0\u8232   \cf2 "parallelism"\cf3 : \cf6 2\cf3 ,\uc0\u8232   \cf2 "min_iter"\cf3 :\cf6 30\cf3 ,\uc0\u8232   \cf2 "max_iter"\cf3 :\cf6 50\cf3 ,\uc0\u8232   \cf2 "min_regparam"\cf3 :\cf6 0.5\cf3 ,\uc0\u8232   \cf2 "max_regparam"\cf3 :\cf6 0.8\cf3 ,\uc0\u8232   \cf2 "min_elasticnet"\cf3 :\cf6 0.5\cf3 ,\uc0\u8232   \cf2 "max_elasticnet"\cf3 :\cf6 0.8\uc0\u8232 \cf4 \}\cf3 ,\cf4 \
+\pard\pardeftab720\sl252\slmult1\sb100\sa100\qj\partightenfactor0
+
+\f1\fs22 \cf0 \
+\pard\pardeftab720\li720\fi-360\sl252\slmult1\sa160\partightenfactor0
+\cf0 5)	Run the fit and predict on each model \'96 keep in mind that you need to do hyper parameter tuning i.e. use GridSearchCV\
+\pard\pardeftab720\sl252\slmult1\sa160\partightenfactor0
+\cf0 \
+\pard\pardeftab720\li720\fi-360\sl252\slmult1\sa160\partightenfactor0
+\cf0 6)	Log to the console the standard model metrics that apply\
+\pard\pardeftab720\sl252\slmult1\sa160\partightenfactor0
+\cf0 \
+\
+\
+\pard\pardeftab720\sb100\sa100\qj\partightenfactor0
+\cf0 \
+\
+}
